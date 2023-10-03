@@ -34,6 +34,12 @@
 (use-package magit
   :ensure t)
 
+(use-package catppuccin-theme
+  :ensure t
+  :config
+  (load-theme 'catppuccin t)
+  (set-background-color "black"))
+
 
 ;; config changes made through the customize UI will be stored here
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
