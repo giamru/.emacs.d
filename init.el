@@ -31,6 +31,10 @@
 
 ;; Packages
 
+(use-package paren
+  :config
+  (show-paren-mode +1))
+
 (use-package magit
   :ensure t)
 
@@ -40,6 +44,56 @@
   (load-theme 'catppuccin t)
   (set-background-color "black"))
 
+(use-package diminish
+  :ensure t
+  :config
+  (diminish 'abbrev-mode)
+  (diminish 'flyspell-mode)
+  (diminish 'flyspell-prog-mode)
+  (diminish 'eldoc-mode))
+
+(use-package markdown-mode
+  :ensure t)
+
+(use-package lsp-mode
+  :ensure t
+  :init (setq lsp-keymap-prefix "C-c l")
+  :commands lsp)
+
+(use-package flycheck
+  :ensure t
+  :config
+  (add-hook 'after-init-hook #'global-flycheck-mode))
+
+(use-package company
+  :ensure t
+  :config
+  (setq company-idle-delay 0.5)
+  (setq company-show-quick-access t)
+  (setq company-tooltip-limit 10)
+  (setq company-minimum-prefix-length 2)
+  (setq company-tooltip-align-annotations t)
+  ;; invert the navigation direction if the the completion popup-isearch-match
+  ;; is displayed on top (happens near the bottom of windows)
+  (setq company-tooltip-flip-when-above t)
+  (global-company-mode)
+  (diminish 'company-mode))
+
+
+(use-package tree-sitter
+  :ensure t
+  :config
+  (add-hook 'after-init-hook #'global-tree-sitter-mode))
+
+(use-package undo-tree
+  :ensure t
+  :config
+  ;; autosave the undo-tree history
+  (setq undo-tree-history-directory-alist
+        `((".*" . ,temporary-file-directory)))
+  (setq undo-tree-auto-save-history t)
+  (global-undo-tree-mode +1)
+  (diminish 'undo-tree-mode))
 
 ;; config changes made through the customize UI will be stored here
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
