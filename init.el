@@ -22,6 +22,17 @@
 ;; Start in full screen
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
+;; Fonts
+(cond
+ ((find-font (font-spec :name "Cascadia Code"))
+  (set-frame-font "Cascadia Code-14"))
+ ((find-font (font-spec :name "Menlo"))
+  (set-frame-font "Menlo-14"))
+ ((find-font (font-spec :name "DejaVu Sans Mono"))
+  (set-frame-font "DejaVu Sans Mono-14"))
+ ((find-font (font-spec :name "Inconsolata"))
+  (set-frame-font "Inconsolata-14")))
+
 ;; Install use package
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
