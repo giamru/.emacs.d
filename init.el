@@ -52,7 +52,8 @@
     ;;       mac-right-option-modifier       'none
     ;;       ns-right-option-modifier        'none
     ;;       )
-    (setq mac-right-command-modifier 'meta)
+    (setq mac-right-command-modifier 'meta
+	  mac-command-modifier 'meta)
     (message "MacOS")))
  ((string-equal system-type "gnu/linux") ; linux
   (progn
