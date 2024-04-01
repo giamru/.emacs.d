@@ -27,6 +27,14 @@
 ;; Start in full screen
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
+;; Remove top toolbar
+(when (fboundp 'tool-bar-mode)
+  (tool-bar-mode -1))
+
+;; Remove menu bar
+(when (fboundp 'menu-bar-mode)
+  (menu-bar-mode -1))
+
 ;; Fonts
 (cond
  ((find-font (font-spec :name "Cascadia Code"))
@@ -88,6 +96,15 @@
   (diminish 'flyspell-mode)
   (diminish 'flyspell-prog-mode)
   (diminish 'eldoc-mode))
+
+(use-package paredit
+  :ensure t
+  :config
+  (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
+  (add-hook 'lisp-interaction-mode-hook #'paredit-mode)
+  (add-hook 'lisp-mode-hook #'paredit-mode)
+  (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode)
+  (diminish 'paredit-mode "()"))
 
 (use-package markdown-mode
   :ensure t)
