@@ -1,6 +1,6 @@
 ;;; init.el --- Gianina's Emacs configuration
 ;;
-;; Copyright © 2023 Gianina Moraru
+;; Copyright © 2023-2024 Gianina Moraru
 ;;
 ;; Author: Gianina Moraru <gianinamoraru@proton.me>
 ;; URL: https://github.com/giamru/.emacs.d
