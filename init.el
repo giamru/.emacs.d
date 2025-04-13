@@ -1,6 +1,6 @@
 ;;; init.el --- Gianina's Emacs configuration
 ;;
-;; Copyright © 2023-2024 Gianina Moraru
+;; Copyright © 2023-2025 Gianina Moraru
 ;;
 ;; Author: Gianina Moraru <gianinamoraru@proton.me>
 ;; URL: https://github.com/giamru/.emacs.d
@@ -37,8 +37,8 @@
 
 ;; Fonts
 (cond
- ((find-font (font-spec :name "Cascadia Code"))
-  (set-frame-font "Cascadia Code-16"))
+ ((find-font (font-spec :name "Monaco"))
+  (set-frame-font "Monaco 20"))
  ((find-font (font-spec :name "Menlo"))
   (set-frame-font "Menlo-16"))
  ((find-font (font-spec :name "DejaVu Sans Mono"))
