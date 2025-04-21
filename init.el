@@ -27,6 +27,9 @@
 ;; Start in full screen
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
+;; Add line number
+(global-display-line-numbers-mode)
+
 ;; Remove top toolbar
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
@@ -87,7 +90,8 @@
   :ensure t
   :config
   (load-theme 'catppuccin t)
-  (set-background-color "black"))
+  (set-background-color "black")
+  (set-face-attribute 'line-number' nil :background "black"))
 
 (use-package diminish
   :ensure t
